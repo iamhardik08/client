@@ -3,10 +3,10 @@
  */
 const appAuthProvider = {
   isAuthenticated: false,
-  signin(callback) {
+  signin(email, password,callback) {
     const data = {
-      email: "thardik41@gmail.com",
-      password: "abc123",
+      email,
+      password,
     };
     fetch("http://localhost:8000/auth/login", {
       method: "post",
@@ -15,14 +15,14 @@ const appAuthProvider = {
     })
       .then((response) => response.json())
       .then((resp) => {
-        console.log(resp);
+        callback(resp.id, resp.token);
       })
       .catch((error) => {
         console.error("Error processing login request");
       });
 
     appAuthProvider.isAuthenticated = true;
-    callback();
+    
   },
   signout(callback) {
     appAuthProvider.isAuthenticated = false;

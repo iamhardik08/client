@@ -1,20 +1,20 @@
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { useNavigate, useLocation } from "react-router-dom";
 import useAuth from "./useAuth";
 
 function LoginPage() {
-  let navigate = useNavigate();
-  let location = useLocation();
-  let auth = useAuth();
+  const { register, handleSubmit } = useForm();
+  const [data, setData] = useState("");
 
-  let from = location.state?.from?.pathname || "/";
+  const navigate = useNavigate();
+  const location = useLocation();
+  const auth = useAuth();
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  const from = location.state?.from?.pathname || "/";
 
-    let formData = new FormData(event.currentTarget);
-    let username = formData.get("username");
-
-    auth.signin(username, () => {
+  function handleSubmitCb(data) {
+    auth.signin(data.email, data.password, () => {
       navigate(from, { replace: true });
     });
   }
@@ -23,11 +23,10 @@ function LoginPage() {
     <div>
       <p>You must log in to view the page at {from}</p>
 
-      <form onSubmit={handleSubmit}>
-        <label>
-          Username: <input name="username" type="text" />
-        </label>{" "}
-        <button type="submit">Login</button>
+      <form onSubmit={handleSubmit(handleSubmitCb)}>
+        <input {...register("email")} placeholder="Email" />
+        <input {...register("password")} placeholder="Password" />
+        <input type="submit" />
       </form>
     </div>
   );

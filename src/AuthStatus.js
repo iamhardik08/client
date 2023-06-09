@@ -4,14 +4,13 @@ import useAuth from "./useAuth";
 function AuthStatus() {
   let auth = useAuth();
   let navigate = useNavigate();
-
-  if (!auth.user) {
+  if (!auth.token) {
     return <p>You are not logged in.</p>;
   }
 
   return (
     <p>
-      Welcome {auth.user}!{" "}
+      Welcome {auth.email}!{" "}
       <button
         onClick={() => {
           auth.signout(() => navigate("/"));

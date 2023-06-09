@@ -9,7 +9,7 @@ import {
     let auth = useAuth();
     let location = useLocation();
   
-    if (!auth.user) {
+    if (!auth.token) {
       return <Navigate to="/login" state={{ from: location }} replace />;
     }
   

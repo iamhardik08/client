@@ -3,23 +3,28 @@ import { appAuthProvider } from "./auth";
 import AuthContext from "./AuthContext";
 
 function AuthProvider({ children }) {
-  let [user, setUser] = useState(null);
-
-  let signin = (newUser, callback) => {
-    return appAuthProvider.signin(() => {
-      setUser(newUser);
-      callback();
+  const [email, setEmail] = useState(null);
+  const [token, setToken] = useState(null);
+  const [id, setId] = useState(null);
+  const signin = (email, password, callback) => {
+    setEmail(email);
+    return appAuthProvider.signin(email, password, (id, token) => {
+      setId(id);
+      setToken(token);
+      callback()
     });
   };
 
-  let signout = (callback) => {
+  const signout = (callback) => {
     return appAuthProvider.signout(() => {
-      setUser(null);
-      callback();
+        setEmail(null);
+        setId(null);
+        setToken(null);
+        callback()
     });
   };
 
-  let value = { user, signin, signout };
+  const value = { email, id, token, signin, signout };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
