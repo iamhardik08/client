@@ -1,0 +1,48 @@
+.login-page {
+  height: 99.8vh;
+  width: 100vw;
+  display: flex;
+  background-color: #f5f2eb;
+}
+
+.login-left {
+  height: 99.8vh;
+  width: 50vw;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-right {
+  height: 99.8vh;
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+    width: 50%;
+    height: 70%;
+  left: 180px;
+  background: #ffffff;
+  border-radius: 30px;
+  padding: 40px 25px 35px 25px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.sign-in-text {
+    font-weight: 700;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.enter-text {
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: 400;
+}

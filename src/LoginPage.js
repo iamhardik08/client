@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useLocation } from "react-router-dom";
 import useAuth from "./useAuth";
+import ManSvg from "./man.svg";
+import "./LoginPage.css";
 
 function LoginPage() {
   const { register, handleSubmit } = useForm();
@@ -20,14 +22,32 @@ function LoginPage() {
   }
 
   return (
-    <div>
-      <p>You must log in to view the page at {from}</p>
+    <div className="login-page">
+      <div className="login-left">
+        <div className="login-form">
+          <div className="sign-in-text">
+          Sign in
 
-      <form onSubmit={handleSubmit(handleSubmitCb)}>
+          </div>
+          
+          <div className="enter-text">
+          Hey! Enter your details to login to your account
+          </div>
+
+          <form onSubmit={handleSubmit(handleSubmitCb)}>
         <input {...register("email")} placeholder="Email" />
+        <br />
         <input {...register("password")} placeholder="Password" />
+        <br />
         <input type="submit" />
       </form>
+        </div>
+      </div>
+
+      <div className="login-right">
+        <img src={ManSvg} />
+      </div>
+     
     </div>
   );
 }

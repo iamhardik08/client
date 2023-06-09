@@ -13,7 +13,6 @@ import LoginPage from "./LoginPage";
 function App() {
   return (
     <AuthProvider>
-      <h1>Auth Example</h1>
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<PublicPage />} />
