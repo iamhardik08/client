@@ -35,11 +35,11 @@ function LoginPage() {
           </div>
 
           <form onSubmit={handleSubmit(handleSubmitCb)}>
-        <input {...register("email")} placeholder="Email" />
+        <input {...register("email", { required: true, maxLength: 255, pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/  })} placeholder="Email" className="login-input"/>
         <br />
-        <input {...register("password")} placeholder="Password" />
+        <input {...register("password", { required: true, maxLength: 255})} placeholder="Password" className="login-input"/>
         <br />
-        <input type="submit" />
+        <input type="submit" className="login-btn"/>
       </form>
         </div>
       </div>
