@@ -38,8 +38,12 @@ function LoginPage() {
         <input {...register("email", { required: true, maxLength: 255, pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/  })} placeholder="Email" className="login-input"/>
         <br />
         <input {...register("password", { required: true, maxLength: 255})} placeholder="Password" className="login-input"/>
+
+        {/* <div className="register-text">Forgot Password?</div> */}
         <br />
         <input type="submit" className="login-btn"/>
+
+        <div className="register-text">Don’t have an account? <span>Sign Up</span></div>
       </form>
         </div>
       </div>
