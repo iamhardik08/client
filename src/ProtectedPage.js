@@ -1,5 +1,11 @@
 function ProtectedPage() {
-  return <h3>Protected</h3>;
+  return <>
+
+    <form>
+      <input />
+    </form>
+  
+  </>;
 }
 
 export default ProtectedPage;

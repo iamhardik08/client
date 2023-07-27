@@ -26,32 +26,32 @@ function LoginPage() {
       <div className="login-left">
         <div className="login-form">
           <div className="sign-in-text">
-          Sign in
+            Sign in
 
           </div>
-          
+
           <div className="enter-text">
-          Hey! Enter your details to login to your account
+            Hey! Enter your details to login to your account
           </div>
 
           <form onSubmit={handleSubmit(handleSubmitCb)}>
-        <input {...register("email", { required: true, maxLength: 255, pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/  })} placeholder="Email" className="login-input"/>
-        <br />
-        <input {...register("password", { required: true, maxLength: 255})} placeholder="Password" className="login-input"/>
+            <input {...register("email", { required: true, maxLength: 255, pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ })} placeholder="Email" className="login-input" />
+            <br />
+            <input {...register("password", { required: true, maxLength: 255 })} placeholder="Password" className="login-input" />
 
-        {/* <div className="register-text">Forgot Password?</div> */}
-        <br />
-        <input type="submit" className="login-btn"/>
+            {/* <div className="register-text">Forgot Password?</div> */}
+            <br />
+            <input type="submit" className="login-btn" />
 
-        <div className="register-text">Don’t have an account? <span>Sign Up</span></div>
-      </form>
+            <div className="register-text">Don’t have an account? <span>Sign Up</span></div>
+          </form>
         </div>
       </div>
 
       <div className="login-right">
         <img src={ManSvg} />
       </div>
-     
+
     </div>
   );
 }

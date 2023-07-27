@@ -8,7 +8,7 @@ const appAuthProvider = {
       email,
       password,
     };
-    fetch("http://localhost:8000/auth/login", {
+    fetch("http://34.204.7.245:8000/auth/login", {
       method: "post",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(data),
